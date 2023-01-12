@@ -1,5 +1,5 @@
 FROM node:16-bullseye
-RUN apt-get update && apt-get install -y openssl
+RUN apt-get update && apt-get install -y openssl ca-certificates
 RUN apt-get install dpkg -y
 RUN apt-get install wget -y
 RUN apt-get install g++ make python3 -y
