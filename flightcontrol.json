@@ -46,6 +46,24 @@
             "./package-lock.json",
             "./Dockerfile.debian"
           ]
+        },
+        {
+          "id": "d-node-debian-16",
+          "name": "Demo Pulsar Node Client 1.7.0 on 16 Bullseye",
+          "type": "fargate-worker",
+          "buildType": "docker",
+          "dockerfilePath": "./Dockerfile.debian-16",
+          "dockerContext": ".",
+          "cpu": 1,
+          "memory": 2,
+          "minInstances": 1,
+          "maxInstances": 1,
+          "watchPaths": [
+            "./src/index.js",
+            "./package.json",
+            "./package-lock.json",
+            "./Dockerfile.debian-16"
+          ]
         }
       ]
     }
