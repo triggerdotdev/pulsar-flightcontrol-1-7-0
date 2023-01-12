@@ -1,0 +1,15 @@
+FROM node:lts-bullseye
+RUN apt-get update && apt-get install -y openssl
+RUN apt-get install dpkg -y
+RUN apt-get install wget -y
+RUN apt-get install g++ make python3 -y
+ENV PULSAR_CPP_CLIENT_VERSION=2.10.3
+RUN wget https://archive.apache.org/dist/pulsar/pulsar-${PULSAR_CPP_CLIENT_VERSION}/DEB/apache-pulsar-client.deb -q
+RUN wget https://archive.apache.org/dist/pulsar/pulsar-${PULSAR_CPP_CLIENT_VERSION}/DEB/apache-pulsar-client-dev.deb -q
+RUN dpkg -i ./apache-pulsar-client*.deb
+WORKDIR /app
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm install
+COPY ./ ./
+ENTRYPOINT ["npm", "start"]

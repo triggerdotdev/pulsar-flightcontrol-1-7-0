@@ -58,6 +58,21 @@
           "watchPaths": [
             "./**"
           ]
+        },
+        {
+          "id": "d-node-debian",
+          "name": "Demo Pulsar Node Client 1.7.0 on Bullseye",
+          "type": "fargate-worker",
+          "buildType": "docker",
+          "dockerfilePath": "./Dockerfile.debian",
+          "dockerContext": ".",
+          "cpu": 1,
+          "memory": 2,
+          "minInstances": 1,
+          "maxInstances": 1,
+          "watchPaths": [
+            "./**"
+          ]
         }
       ]
     }
