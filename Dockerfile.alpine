@@ -1,4 +1,11 @@
 FROM node:18-alpine
+RUN apk add dpkg
+RUN apk add --no-cache wget
+RUN apk add g++ make python3
+ENV PULSAR_CPP_CLIENT_VERSION=2.10.3
+RUN wget https://archive.apache.org/dist/pulsar/pulsar-${PULSAR_CPP_CLIENT_VERSION}/DEB/apache-pulsar-client.deb -q
+RUN wget https://archive.apache.org/dist/pulsar/pulsar-${PULSAR_CPP_CLIENT_VERSION}/DEB/apache-pulsar-client-dev.deb -q
+RUN dpkg -i --force-architecture ./apache-pulsar-client*.deb
 WORKDIR /app
 COPY package.json ./
 COPY package-lock.json ./

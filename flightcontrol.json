@@ -10,12 +10,28 @@
         "trigger": "manual"
       },
       "envVariables": {
-        "PULSAR_ISSUER_URL": "https://auth.streamnative.cloud/"
+        "PULSAR_ISSUER_URL": "https://auth.streamnative.cloud/",
+        "DOCKER_USERNAME": "maverickdotdev",
+        "DOCKER_PASSWORD": {
+          "fromParameterStore": "DOCKER_HUB_PASSWORD"
+        },
+        "PULSAR_CLIENT_ID": {
+          "fromParameterStore": "demo.node.pulsar.client_id"
+        },
+        "PULSAR_CLIENT_SECRET": {
+          "fromParameterStore": "demo.node.pulsar.client_secret"
+        },
+        "PULSAR_AUDIENCE": {
+          "fromParameterStore": "demo.node.pulsar.audience"
+        },
+        "PULSAR_SERVICE_URL": {
+          "fromParameterStore": "demo.node.pulsar.service_url"
+        }
       },
       "services": [
         {
-          "id": "d-node",
-          "name": "Demo Pulsar Node Client 1.8.0 on Alpine",
+          "id": "d-node-alpine",
+          "name": "Demo Pulsar Node Client 1.7.0 on Alpine",
           "type": "fargate-worker",
           "buildType": "docker",
           "dockerfilePath": "./Dockerfile.alpine",
@@ -26,21 +42,7 @@
           "maxInstances": 1,
           "watchPaths": [
             "./**"
-          ],
-          "envVariables": {
-            "PULSAR_CLIENT_ID": {
-              "fromParameterStore": "demo.node.pulsar.client_id"
-            },
-            "PULSAR_CLIENT_SECRET": {
-              "fromParameterStore": "demo.node.pulsar.client_secret"
-            },
-            "PULSAR_AUDIENCE": {
-              "fromParameterStore": "demo.node.pulsar.audience"
-            },
-            "PULSAR_SERVICE_URL": {
-              "fromParameterStore": "demo.node.pulsar.service_url"
-            }
-          }
+          ]
         }
       ]
     }

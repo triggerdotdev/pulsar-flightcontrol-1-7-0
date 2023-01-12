@@ -1,5 +1,5 @@
 {
-  "name": "pulsar-flightcontrol-1-8-0",
+  "name": "pulsar-flightcontrol-1-7-0",
   "version": "1.0.0",
   "description": "Playground to get pulsar-client building and deploying using Docker and flightcontrol",
   "main": "src/index.js",
@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "pulsar-client": "1.8.0"
+    "pulsar-client": "1.7.0"
   },
   "devDependencies": {
     "dotenv": "16.0.3"
