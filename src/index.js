@@ -60,4 +60,4 @@ const Pulsar = require("pulsar-client");
   await producer.close();
   await consumer.close();
   await client.close();
-})();
+})().catch(console.error);
